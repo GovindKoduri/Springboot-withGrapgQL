@@ -24,6 +24,11 @@ public class BookResource {
     @Autowired
     private BookService bookService;
 
+    @GetMapping("/health")
+    public String greetings() {
+        return "Hello, Service is deployed into Azure successfully !!!";
+    }
+
     @PostMapping("/graphql")
     public ResponseEntity<Object> getAllBooks(@RequestBody String query) {
         log.info("GraphQL query: {}", query);
